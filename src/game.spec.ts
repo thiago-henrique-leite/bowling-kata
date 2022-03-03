@@ -24,7 +24,7 @@ describe('Boliche', () => {
   })
 
   test('quando o jogador faz um strike', () => {
-    game.jogar(10)
+    strike()
     game.jogar(7)
     game.jogar(2)
     expect(game.score()).toBe(28)
@@ -34,6 +34,10 @@ describe('Boliche', () => {
 function spare() {
   game.jogar(5)
   game.jogar(5)
+}
+
+function strike() {
+  game.jogar(10)
 }
 
 function realizarJogadas(num_jogadas: number, pinos: number) {
