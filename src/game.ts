@@ -11,7 +11,7 @@ export class Game {
     let frameIndex = 0
 
     for(let frame=0; frame<10; frame++) {
-      if(this.jogadas[frameIndex] === 10) {
+      if(this.ehStrike(frameIndex)) {
         _score = 10 + this.jogadas[frameIndex + 1] + this.jogadas[frameIndex + 2]
         frameIndex += 1
       }
@@ -25,6 +25,10 @@ export class Game {
     }
 
     return _score
+  }
+
+  private ehStrike(frameIndex: number) : boolean {
+    return this.jogadas[frameIndex] === 10
   }
 
   private ehSpare(frameIndex: number) : boolean {
