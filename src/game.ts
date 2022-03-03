@@ -8,9 +8,11 @@ export class Game {
 
   score() : number {
     let _score = 0
+    let frameIndex = 0
 
-    for(let i=0; i<20; i++) {
-      _score += this.jogadas[i]
+    for(let frame=0; frame<10; frame++) {
+      _score += this.jogadas[frameIndex] + this.jogadas[frameIndex + 1]
+      frameIndex += 2
     }
 
     return _score
