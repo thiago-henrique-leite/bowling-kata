@@ -1,11 +1,18 @@
 export class Game {
-  private _score: number = 0
+  private jogadas: number[] = Array(21)
+  private jogadaAtual: number = 0
 
   jogar(pinos: number): void {
-    this._score += pinos
+    this.jogadas[this.jogadaAtual++] = pinos
   }
 
   score() : number {
-    return this._score
+    let _score = 0
+
+    for(let i=0; i<20; i++) {
+      _score += this.jogadas[i]
+    }
+
+    return _score
   }
 }
