@@ -16,6 +16,13 @@ describe('Boliche', () => {
     realizarJogadas(20, 1)
     expect(game.score()).toBe(20)
   })
+
+  test('quando o jogador faz um spare', () => {
+    game.jogar(5)
+    game.jogar(5)
+    game.jogar(3)
+    expect(game.score()).toBe(16)
+  })
 })
 
 function realizarJogadas(num_jogadas: number, pinos: number) {
