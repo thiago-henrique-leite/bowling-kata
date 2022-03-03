@@ -1,9 +1,11 @@
 export class Game {
-  jogar(pinos: number): void {
+  private _score: number = 0
 
+  jogar(pinos: number): void {
+    this._score += pinos
   }
 
   score() : number {
-    return 0
+    return this._score
   }
 }
