@@ -29,18 +29,23 @@ describe('Boliche', () => {
     game.jogar(2)
     expect(game.score()).toBe(28)
   })
+
+  test('quando o jogador faz strike em todas as jogadas', () => {
+    realizarJogadas(12, 10)
+    expect(game.score()).toBe(300)
+  })
 })
 
-function spare() {
+function spare(): void {
   game.jogar(5)
   game.jogar(5)
 }
 
-function strike() {
+function strike(): void {
   game.jogar(10)
 }
 
-function realizarJogadas(num_jogadas: number, pinos: number) {
+function realizarJogadas(num_jogadas: number, pinos: number): void {
   for(let i=0; i<num_jogadas; i++) {
     game.jogar(pinos)
   }
