@@ -1,5 +1,5 @@
 export class Game {
-  private jogadas: number[] = Array(21)
+  private jogadas: number[] = Array(21).fill(0)
   private jogadaAtual: number = 0
 
   jogar(pinos: number): void {
@@ -11,8 +11,13 @@ export class Game {
     let frameIndex = 0
 
     for(let frame=0; frame<10; frame++) {
-      _score += this.jogadas[frameIndex] + this.jogadas[frameIndex + 1]
-      frameIndex += 2
+      if(this.jogadas[frameIndex] + this.jogadas[frameIndex + 1] === 10) {
+        _score += 10 + this.jogadas[frameIndex + 2]
+        frameIndex += 2
+      } else {
+        _score += this.jogadas[frameIndex] + this.jogadas[frameIndex + 1]
+        frameIndex += 2
+      }
     }
 
     return _score
