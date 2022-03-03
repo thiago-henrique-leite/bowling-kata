@@ -8,18 +8,18 @@ beforeEach(() => {
 
 describe('Boliche', () => {
   test('quando o jogador não acerta nenhum pino', () => {
-    for(let i=0; i<20; i++) {
-      game.jogar(0)
-    }
-
+    realizarJogadas(20, 0)
     expect(game.score()).toBe(0)
   })
 
   test('quando o jogador acerta um pino em todas as jogadas', () => {
-    for(let i=0; i<20; i++) {
-      game.jogar(1)
-    }
-
+    realizarJogadas(20, 1)
     expect(game.score()).toBe(20)
   })
 })
+
+function realizarJogadas(num_jogadas: number, pinos: number) {
+  for(let i=0; i<num_jogadas; i++) {
+    game.jogar(pinos)
+  }
+}
