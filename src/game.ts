@@ -12,18 +12,16 @@ export class Game {
 
     for(let frame=0; frame<10; frame++) {
       if(this.ehStrike(frameIndex)) {
-        _score = this.bonusStrike(frameIndex)
+        _score += 10 + this.bonusStrike(frameIndex)
         frameIndex += 1
-      }
-      if(this.ehSpare(frameIndex)) {
-        _score += this.bonusSpare(frameIndex)
+      } else if(this.ehSpare(frameIndex)) {
+        _score += 10 + this.bonusSpare(frameIndex)
         frameIndex += 2
       } else {
         _score += this.jogadaNormal(frameIndex)
         frameIndex += 2
       }
     }
-
     return _score
   }
 
@@ -36,11 +34,11 @@ export class Game {
   }
 
   private bonusStrike(frameIndex: number) : number {
-    return 10 + this.jogadas[frameIndex + 1] + this.jogadas[frameIndex + 2]
+    return this.jogadas[frameIndex + 1] + this.jogadas[frameIndex + 2]
   }
 
   private bonusSpare(frameIndex: number) : number {
-    return 10 + this.jogadas[frameIndex + 2]
+    return this.jogadas[frameIndex + 2]
   }
 
   private jogadaNormal(frameIndex: number) : number {
