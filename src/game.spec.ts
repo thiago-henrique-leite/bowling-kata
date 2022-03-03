@@ -18,12 +18,16 @@ describe('Boliche', () => {
   })
 
   test('quando o jogador faz um spare', () => {
-    game.jogar(5)
-    game.jogar(5)
+    spare()
     game.jogar(3)
     expect(game.score()).toBe(16)
   })
 })
+
+function spare() {
+  game.jogar(5)
+  game.jogar(5)
+}
 
 function realizarJogadas(num_jogadas: number, pinos: number) {
   for(let i=0; i<num_jogadas; i++) {
