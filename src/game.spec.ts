@@ -22,6 +22,13 @@ describe('Boliche', () => {
     game.jogar(3)
     expect(game.score()).toBe(16)
   })
+
+  test('quando o jogador faz um strike', () => {
+    game.jogar(10)
+    game.jogar(7)
+    game.jogar(2)
+    expect(game.score()).toBe(28)
+  })
 })
 
 function spare() {
